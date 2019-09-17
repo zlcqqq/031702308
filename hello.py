@@ -42,7 +42,7 @@ for name in content:
     else: 
         break
 nameline = content[:namenumber]
-#print (nameline)#名字段giao定
+#print (nameline)#名字段giao
 moblies=get_findAll_mobiles(text=content)
 phoneline = moblies[0]
 #print (phoneline)#电话段搞定
