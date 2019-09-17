@@ -42,7 +42,7 @@ for name in content:
     else: 
         break
 nameline = content[:namenumber]
-#print (nameline)#名字段giao
+#print (nameline)#名字段giao定
 moblies=get_findAll_mobiles(text=content)
 phoneline = moblies[0]
 #print (phoneline)#电话段搞定
@@ -76,10 +76,10 @@ df3.insert(4,str5)
 #print (str4)
 #print (lgcon)
 if test == 2:
-    temp = re.match('.+?(?:巷|路|街|弄|道)',lgcon)
+    temp = re.match('.+?(?:街|巷|路|弄|道)',lgcon)
     if temp != None :
-        str5 = re.search('.+?(?:巷|路|街|弄|道)',lgcon).group()
-        lgcon = re.sub('.+?(?:巷|路|街|弄|道)','',lgcon)
+        str5 = re.search('.+?(?:街|巷|路|弄|道)',lgcon).group()
+        lgcon = re.sub('.+?(?:街|巷|路|弄|道)','',lgcon)
     else :
         str5 = ''
     df3[4] = str5#至此搞定到路 又因为路和门牌共存亡（“2！”的情况），所以剩下的lgcon便是str6
@@ -95,6 +95,14 @@ if test == 2:
 #print (str7)#7是详细地址
     df3.insert(5,str6)
     df3.insert(6,str7)
+if (df3[0]=='北京市'):
+    df3[0]='北京'
+if (df3[0]=='天津市'):
+    df3[0]='天津'
+if (df3[0]=='重庆市'):
+    df3[0]='重庆'
+if (df3[0]=='上海市'):
+    df3[0]='上海'
 #print (df3)
 dic1={}
 dic1["姓名"]=nameline
